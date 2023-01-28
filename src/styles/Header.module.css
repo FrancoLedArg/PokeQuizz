@@ -1,0 +1,11 @@
+.Header {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+.Header li:hover{
+  text-decoration: underline;
+}
