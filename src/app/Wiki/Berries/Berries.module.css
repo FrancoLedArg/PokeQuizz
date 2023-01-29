@@ -1,0 +1,36 @@
+.Berries {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+.BerriesContainer {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 2rem;
+}
+
+.BerriesContainer a {
+  padding: 1rem;
+  font-size: 2rem;
+  border: 1px solid white;
+  border-radius: 1.5rem;
+}
+
+.EachBerrie {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 0.1rem solid white;
+  border-radius: 2rem;
+}
+
+.BerrieImage {
+  padding: 20px;
+  font-size: 2rem;
+  background-color: grey;
+}

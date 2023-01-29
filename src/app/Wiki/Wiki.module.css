@@ -1,0 +1,23 @@
+.Wiki {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.WikiContainer {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 3rem;
+}
+
+.WikiContainer li {
+  width: 100%;
+  padding: 2rem;
+  font-size: 2rem;
+  text-align: center;
+  border: 0.1rem solid white;
+  border-radius: 2rem;
+}
