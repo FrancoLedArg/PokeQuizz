@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react'
+import { Suspense } from 'react'
 
 // Components
 import EachBerrie from './EachBerrie'
@@ -14,10 +14,9 @@ export default async function Berries() {
 
   return (
     <div className={styles.Berries}>
-      <h1>This is the Berries page!</h1>
-      <p>
-        Berries are small fruits that can provide HP and status condition restoration, stat enhancement, and even damage negation when eaten by Pokémon. Check out Bulbapedia for greater detail.
-      </p>
+      <h1>Berries</h1>
+      <p>Berries are small fruits that grow on Berry trees.</p>
+      <p>They are held items and ingredients for foods like Pokéblocks and Poffins</p>
       <div className={styles.BerriesContainer}>
         <Suspense fallback={<div>Loading...</div>}>
           {berries.map((e, index) =>

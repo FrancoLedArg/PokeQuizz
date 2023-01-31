@@ -21,3 +21,22 @@
   border: 0.1rem solid white;
   border-radius: 2rem;
 }
+
+.WikiLayout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.WikiLayout a{
+  margin: 2rem;
+  padding: 1rem 1.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 2rem;
+  border: 0.1rem solid white;
+  border-radius: 20rem;
+}

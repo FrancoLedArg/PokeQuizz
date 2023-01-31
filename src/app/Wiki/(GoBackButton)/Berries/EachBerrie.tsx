@@ -93,8 +93,14 @@ export default async function EachBerrie(
         No. {berrie.id}
         <span>{name}</span>
       </h3>
-      <h3 className={styles.Size}>SIZE/ {berrie.size}</h3>
-      <h3 className={styles.Firmness}>FIRM/ {firmness}</h3>
+      <div className={styles.SF}>
+        <h3>SIZE</h3>
+        <span>/</span>
+        <h3 className={styles.SFN}>{berrie.size}</h3>
+        <h3>FIRM</h3>
+        <span>/</span>
+        <h3 className={styles.SFN}>{firmness}</h3>
+      </div>
       <div className={styles.Flavors}>
         <span className={`${styles.Spicy} ${berrie.flavors.spicy > 0 ? styles.isFlavor : ''}`}>SPICY</span>
         <span className={`${styles.Sour} ${berrie.flavors.sour > 0 ? styles.isFlavor : ''}`}>SOUR</span>
