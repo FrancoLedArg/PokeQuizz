@@ -1,5 +1,8 @@
 import Image from 'next/image'
 
+// Utils
+import { firstLetterUppercase } from '@/utils/functions'
+
 // Css
 import styles from './Berries.module.css'
 
@@ -46,7 +49,6 @@ async function fetchBerrie (url: string) {
       },
       size: data1.size,
       firmness: data1.firmness.name,
-      // This is tricky
       description: data2.effect_entries.map(
         // First destructure the effect_entries array to exctract short_effect
         // Then use join to turn the resultant array into a string
@@ -66,14 +68,6 @@ export default async function EachBerrie(
 ) {
   // Fetch the berrie data
   const berrie = await fetchBerrie(url)
-
-  // A helper function to uppercase the first letter of a word
-  const firstLetterUppercase = (word: string) => {
-    const firstLetter = word[0].toUpperCase()
-    const restOfWord = word.slice(1)
-    const uppercaseFirstLetter = firstLetter + restOfWord
-    return uppercaseFirstLetter
-  }
 
   // Uppercase the first letter of the berrie name and firmness
   const name = firstLetterUppercase(berrie.name)

@@ -27,9 +27,9 @@ function Header() {
           </Link>
         </li>
       ))}
-    <Link href='/Profile'>
-      Profile
-    </Link>
+      <li>
+        <Link href='/Profile'>Profile</Link>
+      </li>
     </ul>
   )
 }

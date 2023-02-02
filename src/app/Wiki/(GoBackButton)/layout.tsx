@@ -9,7 +9,7 @@ export default function RootLayout({
 }) {
   return (
     <div className={styles.WikiLayout}>
-      <Link href={'/Wiki'}>⬅</Link>
+      <Link className={styles.Arrow} href={'/Wiki'}>⬅</Link>
       {children}
     </div>
   )
