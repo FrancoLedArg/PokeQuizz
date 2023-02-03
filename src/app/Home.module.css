@@ -1,0 +1,20 @@
+.Header {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Link {
+  color: white;
+  padding: 0 2rem;
+}
+
+.Logo, .Link {
+  font-size: 1.2rem;
+}
+
+.Logo:hover, .Link:hover {
+  text-decoration: underline;
+}
+

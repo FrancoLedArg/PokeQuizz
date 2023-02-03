@@ -15,8 +15,24 @@ async function fetchAllItems (url: string): Promise<Items[]> {
 }
 
 async function fetchItem (url: string) {
-  const res = await fetch(url)
-  const data = await res.json()
+  let data
+  let retries = 5
+  while (retries) {
+    try {
+      const res = await fetch(url)
+      if(!res.ok) {
+        console.log(res.status)
+      }
+      data = await res.json()
+      break
+    } catch (error) {
+      console.error()
+      retries--
+    }
+  }
+  if(!data) {
+    throw new Error(`Could not fetch the data`)
+  }
   return data
 }
 

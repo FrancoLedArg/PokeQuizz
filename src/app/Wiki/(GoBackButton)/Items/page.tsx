@@ -8,7 +8,6 @@ import styles from './Items.module.css'
 
 export default async function Items() {
   const pockets = await fetchAllItems('https://pokeapi.co/api/v2/item-pocket/')
-  console.log(pockets)
 
   return (
     <div className={styles.Items}>
@@ -19,11 +18,10 @@ export default async function Items() {
       <div className={styles.ItemPocketsContainer}>
         {pockets.map((e, index) => {
           const name = firstLetterUppercase(e.name)
-
           return(
             <Link
               key={index}
-              href={`/Wiki/Items/${name}`}
+              href={`/Wiki/Items/${e.name}`}
               className={styles.ItemPocketsLink}
             >
               {name}
