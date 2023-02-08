@@ -1,15 +1,18 @@
-import Link from "next/link"
+// Components
+import Breadcrum from './Breadcrum'
 
-import styles from '../Wiki.module.css'
+// Css
+import styles from '../wiki.module.css'
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: {
   children: React.ReactNode
 }) {
+
   return (
-    <div className={styles.WikiLayout}>
-      <Link className={styles.Arrow} href={'/Wiki'}>⬅</Link>
+    <div className={styles.container}>
+      <Breadcrum />
       {children}
     </div>
   )

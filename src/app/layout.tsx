@@ -2,20 +2,20 @@ import Link from 'next/link'
 
 // Css
 import './globals.css'
-import styles from './Home.module.css'
+import styles from './home.module.css'
 
 const links = [{
   label: 'Home',
   route: '/'
 }, {
   label: 'Wiki',
-  route: '/Wiki'
+  route: '/wiki'
 },{
   label: 'Pokedex',
-  route: '/Pokedex'
+  route: '/pokedex'
 }, {
   label: 'Leaderboard',
-  route: '/Leaderboard'
+  route: '/leaderboard'
 }]
 
 export default function RootLayout({
@@ -35,7 +35,7 @@ export default function RootLayout({
                 {e.label}
               </Link>
             ))}
-              <Link href='/Profile' className={styles.Link}>Profile</Link>
+              <Link href='/profile' className={styles.Link}>Profile</Link>
           </nav>
         </header>
         {children}

@@ -1,34 +1,39 @@
 import Link from 'next/link'
 
 // Utils
-import { fetchAllItems, firstLetterUppercase } from '@/utils/functions'
-
-// Css
-import styles from './Items.module.css'
+import { Data } from '@/utils/types'
+import { fetchItem, firstLetterUppercase } from '@/utils/functions'
 
 export default async function Items() {
-  const pockets = await fetchAllItems('https://pokeapi.co/api/v2/item-pocket/')
+  const pockets = await fetchItem('https://pokeapi.co/api/v2/item-pocket/')
 
   return (
-    <div className={styles.Items}>
+    <div className='container'>
       <h1>Items</h1>
       <p>
-      An item is an object in the games which the player can pick up, keep in their bag, and use in some manner. They have various uses, including healing, powering up, helping catch Pokémon, or to access a new area.
+      An item is an object in the Pokémon games which the player can pick up, keep in their Bag, and use in some manner. They have various uses, including healing, powering up, helping one to catch Pokémon, or accessing new areas.
       </p>
-      <div className={styles.ItemPocketsContainer}>
-        {pockets.map((e, index) => {
-          const name = firstLetterUppercase(e.name)
-          return(
-            <Link
-              key={index}
-              href={`/Wiki/Items/${e.name}`}
-              className={styles.ItemPocketsLink}
-            >
-              {name}
-            </Link>
-          )
+      <nav className='navigation'>
+        {pockets.results.map((e: Data, index: number) => {
+          if(e.name == 'berries') {
+            return null
+          } else {
+            const name = firstLetterUppercase(e.name)
+            return(
+              <Link
+                key={index}
+                href={`/wiki/items/${e.name}`}
+                className='link'
+              >
+                {name === 'Pokeballs' ? 'Pokéballs' : name}
+              </Link>
+            )
+          }
         })}
-      </div>
+        <Link href='/wiki/items/berries' className='link'>
+          Berries
+        </Link>
+      </nav>
     </div>
   )
 }

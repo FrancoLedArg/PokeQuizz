@@ -1,11 +1,11 @@
 import Image from "next/image"
 
 // Utils
-import { fetchItem } from "@/utils/functions"
 import { Data } from "@/utils/types"
+import { fetchItem, firstLetterUppercase } from "@/utils/functions"
 
 // Css
-import styles from './category.module.css'
+import styles from './item.module.css'
 
 interface EffectEntry {
   effect: string,
@@ -17,12 +17,13 @@ export default async function Item(
   { data }: { data: Data }
 ) {
   const item = await fetchItem(data.url)
-  console.log(item)
 
   return (
-    <div className={styles.ItemContainer}>
-      <h1 className={styles.Name}>{item.name}</h1>
-      <div className={styles.Image}>
+    <div className={styles.container}>
+      <h1 className={styles.name}>
+        {item.names.filter(e => e.language.name === 'en').map(e => e.name)}
+      </h1>
+      <div className={styles.image}>
         {item.sprites.default ?
           <Image
             src={item.sprites.default}
@@ -32,21 +33,22 @@ export default async function Item(
           />
         : 'Missing image'}
       </div>
-      <h3 className={styles.Gen}>gen {item.game_indices[0].generation.name.replace("generation-", "")}</h3>
-      <div className={styles.Fling}>
-        <h3 className={styles.Fe}>fling effect: {item.fling_effect}</h3>
-        <h3 className={styles.Fp}>fling power: {item.fling_power}</h3>
+      <div className={styles.fling}>
+        {item.fling_effect ? <h3 className={styles.Fe}>fling effect: {item.fling_effect}</h3> : null}
+        {item.fling_power ? <h3 className={styles.Fp}>fling power: {item.fling_power}</h3> : null}
       </div>
-      <h3 className={styles.Cost}>cost: {item.cost}</h3>
-      <ul className={styles.Attributes}>
-        {item.attributes.map(
+      <h3 className={styles.cost}>
+        {item.cost > 0 ? `cost: ${item.cost}` : `Unavailable for purchase`}
+      </h3>
+      <ul className={styles.attributes}>
+        {item.attributes ? item.attributes.map(
           (e: Data, index: number) => (<li key={index}>{e.name}</li>)
-        )}
+        ): null}
       </ul>
-      <h3>
+      <h3 className={styles.description}>
         {item.effect_entries ? item.effect_entries.map(
           (e: EffectEntry) => e.short_effect
-        ): 'Missing effect'}
+        ): null}
       </h3>
     </div>
   )

@@ -1,13 +1,7 @@
-.container {
-  display: flex;
-}
-
 .items {
-  padding: 2rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   place-items: center;
-  gap: 2rem;
   border: 0.1rem solid white;
   border-radius: 1rem;
 }

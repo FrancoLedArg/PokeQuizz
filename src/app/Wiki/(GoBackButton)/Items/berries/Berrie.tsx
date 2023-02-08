@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { firstLetterUppercase } from '@/utils/functions'
 
 // Css
-import styles from './Berries.module.css'
+import styles from './berries.module.css'
 
 // Type Berrie data structure
 interface Berrie {
