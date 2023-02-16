@@ -27,7 +27,7 @@ export default function Wiki() {
     route: '/wiki/moves'
   }, {
     label: 'Pokemon',
-    route: '/wiki/pokemon'
+    route: '/wiki/pokemon?offset=0'
   }]
 
   return (

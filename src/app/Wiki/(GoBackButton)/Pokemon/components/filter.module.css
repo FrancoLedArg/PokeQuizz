@@ -1,0 +1,85 @@
+.form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.name{
+  width: 25rem;
+  height: 4rem;
+  position: relative;
+  font-size: 1.5rem;
+}
+
+.nameInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  padding-left: 2rem;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 1rem;
+  outline: none;
+}
+
+.nameLabel {
+  position: absolute;
+  padding-left: 1rem;
+  left: 1rem;
+  top: 1rem;
+  cursor: text;
+  user-select: none;
+  background-color: rgb(56, 56, 56);
+  transition:
+    top 150ms ease-in-out,
+    left 150ms ease-in-out,
+    font-size 150ms ease-in-out,
+    padding 150ms ease-in-out;
+}
+
+.nameInput:focus ~ .nameLabel,
+.nameInput:not(:placeholder-shown).nameInput:not(:focus) ~
+.nameLabel {
+  padding: 0 0.5rem;
+  top: -0.8rem;
+  left: 1.5rem;
+  font-size: 1rem;
+}
+
+/**/
+
+.generations, .types {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.checkbox {
+  cursor: pointer;
+  width: 10rem;
+}
+
+.checkboxInput {
+  display: none;
+}
+
+.checkboxSpan {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 1.2rem;
+  text-align: center;
+  user-select: none;
+  border: 1px solid white;
+  border-radius: 1rem;
+}
+
+.checkboxInput:checked ~ .checkboxSpan {
+  background-color: black;
+}
