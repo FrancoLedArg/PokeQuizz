@@ -20,8 +20,8 @@ export default function Wiki() {
     label: 'Items',
     route: '/wiki/items'
   }, {
-    label: 'Locations',
-    route: '/wiki/locations'
+    label: 'Regions',
+    route: '/wiki/regions'
   }, {
     label: 'Moves',
     route: '/wiki/moves'

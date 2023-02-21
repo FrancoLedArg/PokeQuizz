@@ -1,9 +1,23 @@
-import React from 'react'
+import Link from "next/link"
 
-function Games() {
+// Utils
+import { Data } from "@/utils/types"
+import { fetchItem } from "@/utils/functions"
+
+// Components
+import Game from "./Game"
+
+export default async function Games() {
+  const data = await fetchItem('https://pokeapi.co/api/v2/version-group/?limit=25')
+
   return (
-    <div>Games</div>
+    <div>
+      <h1>Games</h1>
+      <div>
+        {data.results.map((e: Data, index: number) =>
+          <Game key={index} url={e.url} />
+        )}
+      </div>
+    </div>
   )
 }
-
-export default Games

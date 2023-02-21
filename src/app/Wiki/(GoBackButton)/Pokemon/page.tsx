@@ -109,7 +109,11 @@ export default async function Page(
   return (
     <div className='container'>
       <div className='container'>
-        {pokemon.results.map((e: Data, index: number) => <Pokemon key={index} url={e.url}/>)}
+        {pokemon.results ?
+          pokemon.results.map((e: Data, index: number) => <Pokemon key={index} url={e.url}/>)
+          :
+          'No pokemon found for the specified characteristics.'
+        }
       </div>
       {
         pokemon.next || pokemon.previous ?
